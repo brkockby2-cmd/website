@@ -206,9 +206,12 @@ h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
     color: white;
     cursor: pointer;
     flex-shrink: 0;
+    background: none;
+    border: none;
+    padding: 5px;
 }
 
-/* ========== HERO ========== */
+/* ========== HERO - DÜZELTMELER ========== */
 .hero {
     position: relative;
     width: 100%;
@@ -221,6 +224,7 @@ h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
     overflow: hidden;
     margin-top: 71px;
     z-index: 1;
+    background: linear-gradient(135deg, #0a2540 0%, #1a4a6e 100%);
 }
 
 .hero-bg {
@@ -230,26 +234,38 @@ h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
     width: 100%;
     height: 100%;
     background-image: url('../images/hero-bg.jpg');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center bottom;
-    background-attachment: scroll;
-    background-color: #0a2540;
-    z-index: -1;
+    background-position: center center;
+    background-attachment: fixed;
+    opacity: 0.25;
+    z-index: 0;
+    will-change: transform;
+}
+
+@media (max-width: 768px) {
+    .hero-bg {
+        background-attachment: scroll;
+        background-position: center 30%;
+    }
 }
 
 .hero .container {
     position: relative;
     z-index: 2;
     width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-content {
     position: relative;
     z-index: 3;
     max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
+    padding: 40px 20px;
+    text-align: center;
 }
 
 .hero-content h1 {
@@ -257,10 +273,12 @@ h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
     font-size: 3.5rem;
     margin-bottom: 24px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
 }
 
 .hero-content .highlight {
     color: var(--gold);
+    display: block;
 }
 
 .hero-content p {
@@ -268,12 +286,14 @@ h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
     font-size: 1.2rem;
     margin-bottom: 32px;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.5;
 }
 
 .hero-buttons {
     display: flex;
     gap: 20px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .scroll-down {
@@ -351,8 +371,17 @@ h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
     color: var(--text-gray);
 }
 
+.about-image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
 .about-image img {
     width: 100%;
+    height: auto;
+    display: block;
     border-radius: 24px;
     box-shadow: var(--shadow-lg);
 }
@@ -582,9 +611,10 @@ h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    aspect-ratio: 4 / 3;
     transition: var(--transition);
-    height: 280px;
+    background: #f0f0f0;
+    aspect-ratio: 4 / 3;
+    min-height: 250px;
 }
 
 .project-card img {
@@ -642,6 +672,7 @@ h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
     aspect-ratio: 1;
     border-radius: 16px;
     cursor: pointer;
+    background: #f0f0f0;
 }
 
 .gallery-item img {
@@ -859,7 +890,7 @@ h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
     padding: 140px 0 80px;
     text-align: center;
     color: white;
-    margin-top: 0;
+    margin-top: 71px;
 }
 
 .page-header h1 {
@@ -906,6 +937,7 @@ h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
 
 .service-block-image {
     overflow: hidden;
+    min-height: 320px;
 }
 
 .service-block-image img {
@@ -1099,6 +1131,7 @@ h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
     overflow: hidden;
     aspect-ratio: 4 / 3;
     background: var(--bg-gray);
+    min-height: 240px;
 }
 
 .product-detailed-image img {
